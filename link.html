@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+            transition: 0.4s;
+            overflow: hidden;
+        }
+        
+        .dark {
+            color: white;
+        }
+        
+        .light {
+            color: black;
+        }
+        /* الفيديو */
+        
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        /* طبقة تغميق */
+        
+        .overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        .light .overlay {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .container {
+            margin-top: 60px;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #00adb5;
+            object-fit: cover;
+        }
+        
+        .link {
+            display: block;
+            margin: 12px auto;
+            padding: 15px;
+            width: 280px;
+            border-radius: 12px;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            transition: 0.3s;
+        }
+        
+        .light .link {
+            background: rgba(255, 255, 255, 0.7);
+            color: black;
+        }
+        
+        .link:hover {
+            transform: scale(1.08);
+            background: #00adb5;
+        }
+        
+        .toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .copy {
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .toggle,
+        .soundBtn {
+            position: fixed;
+            top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .toggle {
+            right: 20px;
+        }
+        
+        .soundBtn {
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body class="dark">
+
+    <!-- فيديوهين -->
+    <video id="darkVideo" autoplay muted loop playsinline>
+  <source src="Video Object Remover-1774662716000.mp4" type="video/mp4">
+</video>
+
+    <video id="PixVerse_V5.5_Modify_360P_make_the_back_ground.mp4" autoplay muted loop playsinline style="display:none;">
+  <source src="light.mp4" type="video/mp4">
+</video>
+
+    <div class="overlay"></div>
+
+    <button class="toggle" onclick="toggleMode()">🌙 / ☀️</button>
+
+    <div class="container">
+
+        <img src="WhatsApp Image 2026-03-10 at 7.07.53 AM.jpeg" class="profile-img">
+
+        <h1>ZIM005</h1>
+        <p>جمعنلك كل الانكات في مكان واحد </p>
+
+        <a class="link" href="https://youtube.com" onclick="clickSound()" target="_blank">YouTube</a>
+        <a class="link" href="https://www.instagram.com/3b3az____moh/" onclick="clickSound()" target="_blank">Instagram</a>
+        <a class="link" href="https://www.tiktok.com/@zio__04?is_from_webapp=1&sender_device=pc" onclick="clickSound()" target="_blank">TikTok</a>
+
+        <a class="link" href="https://www.twitch.tv/zim005" onclick="clickSound()" target="_blank">Twitch</a>
+
+        <a class="link" href="https://ipn.eg/S/zamzome/instapay/1zAAJi" onclick="clickSound()" target="_blank">InstaPay</a>
+
+        <a class="link" href="https://wa.me/201000000000" onclick="clickSound()" target="_blank">WhatsApp</a>
+
+        <button class="copy" onclick="copyLink()">Copy My Page Link</button>
+
+    </div>
+
+    <audio id="sound" src="universfield-computer-mouse-click-352734.mp3"></audio>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark");
+            document.body.classList.toggle("light");
+
+            const darkVideo = document.getElementById("darkVideo");
+            const lightVideo = document.getElementById("lightVideo");
+
+            if (document.body.classList.contains("light")) {
+                darkVideo.style.display = "none";
+                lightVideo.style.display = "block";
+            } else {
+                darkVideo.style.display = "block";
+                lightVideo.style.display = "none";
+            }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link Copied!");
+        }
+
+        function clickSound() {
+            document.getElementById("sound").play();
+        }
+    </script>
+
+</body>
+
+</html>
